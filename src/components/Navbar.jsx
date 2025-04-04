@@ -7,7 +7,7 @@ const Navbar = () => {
   const location = useLocation(); // Get current route
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0f172a] bg-opacity-80 shadow-md backdrop-blur-lg">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#0f172a]/60 shadow-md backdrop-blur-lg">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo */}
@@ -45,9 +45,9 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`fixed top-0 left-0 w-full h-screen bg-[#0f172a] text-white flex flex-col 
+        className={`fixed top-0 left-0 w-full h-screen bg-[#0f172a]/80 text-white flex flex-col 
                     items-center justify-center space-y-8 transition-transform duration-500 
-                    backdrop-blur-2xl bg-opacity-95 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+                    backdrop-blur-2xl ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         {["Home", "About", "Services", "Plans", "Contact"].map((item, index) => {
           const path = `/${item.toLowerCase() === "home" ? "" : item.toLowerCase()}`;
@@ -57,7 +57,8 @@ const Navbar = () => {
             <Link 
               key={index} 
               to={path}
-              className={`text-3xl text-gray-200 transition ${isActive ? "text-cyan-400 font-bold" : "hover:text-cyan-400"}`}
+              className={`text-3xl text-gray-200 transition 
+                          ${isActive ? "text-cyan-400 font-bold" : "hover:text-cyan-400"}`}
               onClick={() => setIsOpen(false)}
             >
               {item}
